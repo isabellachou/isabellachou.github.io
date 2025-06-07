@@ -1,0 +1,27 @@
+body {
+    font-family: sans-serif;
+    background: #f9f9f9;
+    margin: 40px;
+}
+
+#narrative {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+#scene-text {
+    margin: 20px;
+    font-size: 1.25rem;
+}
+
+svg {
+    border: 1px solid #ccc;
+    background: white;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+}
