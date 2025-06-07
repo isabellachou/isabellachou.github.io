@@ -42,6 +42,9 @@ function renderScene() {
 
         console.log("Scene data length:", sceneData.length);
         console.log(sceneData.slice(0, 5));  // preview first few data points
+    } else if (scene === 1) {
+        text = "Past the 1970s, CO₂ has been rising steadily, and faster in recent decades.";
+        sceneData = data; // use all data
     }
 
     // set domains
@@ -74,22 +77,72 @@ function renderScene() {
     g.append("path")
         .datum(sceneData)
         .attr("fill", "none")
-        .attr("stroke", "darkpink") //diff
+        .attr("stroke", "steelblue")
         .attr("stroke-width", 2)
         .attr("d", line);
 
-    // draw annotation
-    g.append("circle")
-        .attr("cx", x(sceneData[0].date))
-        .attr("cy", y(sceneData[0].value))
-        .attr("r", 5)
-        .attr("fill", "brown");
+    // add annotations to the charts
+    if (scene === 0) {
+        g.append("circle")
+            .attr("cx", x(sceneData[0].date))
+            .attr("cy", y(sceneData[0].value))
+            .attr("r", 5)
+            .attr("fill", "brown");
 
-    g.append("text")
-        .attr("x", x(sceneData[0].date) + 10)
-        .attr("y", y(sceneData[0].value) - 10)
-        .text("315 ppm (1958)")
-        .style("fill", "brown");
+        const xPos = x(sceneData[0].date);
+        const yPos = y(sceneData[0].value);
+
+        // ppm label (top)
+        g.append("text")
+            .attr("x", xPos + 35)
+            .attr("y", yPos - 70)
+            .attr("text-anchor", "middle")
+            .text("315 ppm")
+            .style("fill", "brown");
+
+        // year label (bottom)
+        g.append("text")
+            .attr("x", xPos + 30)
+            .attr("y", yPos - 50)
+            .attr("text-anchor", "middle")
+            .text("(1958)")
+            .style("fill", "brown");
+    }
+
+    if (scene === 1) {
+        const milestoneYears = [1988, 2015, 2022];
+        milestoneYears.forEach(targetYear => {
+            // find the closest matching data point for that year
+            const match = sceneData.find(d => d.date.getFullYear() === targetYear);
+            if (match) {
+                const xPos = x(match.date);
+                const yPos = y(match.value);
+
+                // draw annotation circle
+                g.append("circle")
+                    .attr("cx", xPos)
+                    .attr("cy", yPos)
+                    .attr("r", 5)
+                    .attr("fill", "darkred");
+
+                // draw ppm label ABOVE
+                g.append("text")
+                    .attr("x", xPos - 30) // shift to the left
+                    .attr("y", yPos - 25)
+                    .attr("text-anchor", "middle")
+                    .text(`${match.value.toFixed(1)} ppm`)
+                    .style("fill", "darkred");
+
+                // draw year BELOW ppm label
+                g.append("text")
+                    .attr("x", xPos - 30)
+                    .attr("y", yPos - 10)
+                    .attr("text-anchor", "middle")
+                    .text(`(${targetYear})`)
+                    .style("fill", "darkred");
+            }
+        });
+    }
 
     d3.select("#scene-text").text(text);
 }
