@@ -9,10 +9,27 @@
 
     <body onload="init()">
         <div id="narrative">
-            <h1>From 315 ppm to Over 420 ppm:<br>CO₂ Levels Are Rising Faster Than Ever Before</h1>
+            <h2>From 315 ppm to Over 420 ppm:<br>CO₂ Levels Are Rising Faster Than Ever Before</h2>
             <div id="scene-text"></div>
-            <svg id="chart" width="800" height="500"></svg>
-            <button id="next">next</button>
+
+            <div id="chart-container" style="position: relative;">
+                <div id="tooltip-instruction" class="popup-instruction">
+                    <p>💡 <strong>Tip:</strong> When the tooltip is showing, click anywhere on the chart to freeze it. Click again to unfreeze it.</p>
+                    <button id="close-instruction">Got It</button>
+                </div>
+                <svg id="chart" width="800" height="500"></svg>
+            </div>
+            
+            <div id="tooltip" style="opacity: 0; position: absolute; pointer-events: none; background: #fff; padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);"></div>
+            <div id="nav" class="nav-bar">
+                <button id="back">Back</button>
+                <button class="scene-btn" data-scene="0">1</button>
+                <button class="scene-btn" data-scene="1">2</button>
+                <button class="scene-btn" data-scene="2">3</button>
+                <button class="scene-btn" data-scene="3">4</button>
+                <button id="next">Next</button>
+            </div>
+            <p>Source: <a href="https://climate.nasa.gov/vital-signs/carbon-dioxide/?intent=121" target="_blank">NASA Climate Data</a></p>
         </div>
 
         <script src="script.js"></script>

@@ -4,6 +4,13 @@ body {
     margin: 40px;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
 #narrative {
     max-width: 900px;
     margin: auto;
@@ -20,8 +27,65 @@ svg {
     background: white;
 }
 
-button {
+.nav-bar {
+    text-align: center;
     margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1rem;
+}
+
+.nav-bar button {
+    margin: 5px;
+    padding: 10px 16px;
+    font-size: 14px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.nav-bar button:hover {
+    background-color: #ddd;
+}
+
+.nav-bar button.active {
+    background-color: #aaa;
+    color: white;
+}
+
+.grid line {
+    stroke: lightgray;
+    stroke-opacity: 0.7;
+    shape-rendering: crispEdges;
+}
+
+.grid path {
+    display: none;
+}
+
+.popup-instruction {
+    position: fixed;
+    top: 180px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fefefe;
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 1em 1.5em;
+    border-radius: 8px;
+    z-index: 1000;
+    max-width: 400px;
+    font-size: 14px;
+}
+
+.popup-instruction button {
+    margin-top: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.popup-instruction button:hover {
+    background: #0056b3;
 }
