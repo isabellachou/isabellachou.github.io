@@ -65,7 +65,7 @@ function renderScene() {
 
     if (scene === 0) {
         // scene 1: early years
-        text = "In 1958, atmospheric CO₂ was 315 ppm. Monitoring at Mauna Loa begins.";
+        text = "In 1958, atmospheric CO₂ was 315 ppm. Monitoring at Scripps Institution of Oceanography begins.";
         sceneData = data.filter(d => d.date.getFullYear() <= 1970);
 
         console.log("Scene data length:", sceneData.length);
