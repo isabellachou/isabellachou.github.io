@@ -15,11 +15,10 @@ The goal is to help viewers understand how CO₂ levels have risen dramatically 
 - **Instruction Popup:** A user-friendly tip to explain the tooltip interaction.
 
 ## Project Structure
-.
-├── index.html # Main HTML file
-├── style.css # CSS styling
-├── script.js # D3.js script with interactive scenes
-├── data/
+├── index.html # Main HTML file <br />
+├── style.css # CSS styling <br />
+├── script.js # D3.js script with interactive scenes <br />
+├── data/ <br />
 │ └── co2_mm_mlo.csv # NASA CO₂ dataset
 
 ## Data Source
@@ -33,7 +32,7 @@ NASA Global Climate Change – CO₂ Vital Signs:
 
 ## How to Use
 1. Visit the live site: [isabellachou.github.io](https://isabellachou.github.io/)
-2. Use the **Next**, **Back**, or **1–4** buttons to navigate scenes.
+2. Use the **Next**, **Back**, or **1 - 4** buttons to navigate scenes.
 3. Hover over the chart to view monthly CO₂ levels.
 4. Click on the chart to **pin/unpin** the tooltip.
 5. Read the contextual text and watch how the data evolves.
